@@ -29,6 +29,7 @@ function listTabs() {
         let tabLink = document.createElement('a');
 
         tabLink.textContent = tab.title || tab.id;
+        console.log(tabLink.textContent );
         tabLink.setAttribute('href', tab.id);
         tabLink.classList.add('switch-tabs');
         currentTabs.appendChild(tabLink);
@@ -39,6 +40,7 @@ function listTabs() {
 
     tabsList.appendChild(currentTabs);
   });
+
 }
 
 document.addEventListener("DOMContentLoaded", listTabs);
@@ -167,7 +169,7 @@ document.addEventListener("click", (e) => {
 
   else if (e.target.classList.contains('switch-tabs')) {
     var tabId = +e.target.getAttribute('href');
-
+    console.log("Switch");
     browser.tabs.query({
       currentWindow: true
     }).then((tabs) => {
